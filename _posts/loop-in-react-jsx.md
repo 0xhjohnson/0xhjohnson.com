@@ -1,0 +1,70 @@
+---
+title: How to Loop in React JSX
+excerpt: There is no magic when it comes to looping over an array in React.
+date: 2019-02-22
+icon: /assets/icons/react.png
+tags:
+  - React
+---
+
+The [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function can be used directly in JSX which is concise and declarative in comparison to any for loop or variation thereof. Below, we are looping through the array of users and return all of the user list item elements.
+
+```jsx
+function App() {
+  const users = ['John', 'Dan', 'Jenny'];
+
+  return (
+    <ul>
+      {users.map((user) => {
+        return <li>{user}</li>;
+      })}
+    </ul>
+  );
+}
+
+```
+
+Our code has one issue currently. We need to [key](https://reactjs.org/docs/lists-and-keys.html#keys) our items so that React can tell when items have changed in some way. Our data doesn't have a unique ID field so the easiest solution is to use the [uuid](https://github.com/uuidjs/uuid) package to generate them client side.
+
+```bash
+yarn add uuid
+```
+
+```jsx
+import { v4 as uuidv4 } from 'uuid';
+
+function App() {
+  const users = ['John', 'Dan', 'Jenny'];
+
+  return (
+    <ul>
+      {users.map((user) => {
+        return <li key={uuidv4()}>{user}</li>;
+      })}
+    </ul>
+  );
+}
+
+```
+
+The other option is to change the shape of your source data:
+```jsx
+import { v4 as uuidv4 } from 'uuid';
+
+function App() {
+  const users = [
+    { id: 1, name: 'John' },
+    { id: 2, name:  'Dan' },
+    { id: 3, name: 'Jenny' }
+  ];
+
+  return (
+    <ul>
+      {users.map((user) => {
+        return <li key={user.id}>{user.name}</li>;
+      })}
+    </ul>
+  );
+}
+
+```

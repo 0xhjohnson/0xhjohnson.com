@@ -1,0 +1,62 @@
+---
+title: Useful Bash Aliases
+excerpt: There is an easier way to issue common commands within your terminal of choice. Bash aliases to the rescue.
+date: 2018-01-12
+icon: /assets/icons/bash.png
+tags:
+  - Bash
+---
+
+Ever wondered if there was an easier way to issue common commands within your terminal of choice. Bash aliases to the rescue. Bash aliases allow me to type less, resulting in fewer incorrect commands.
+
+Add these to your bash config file. Usually located at`~/.bashrc`
+
+## General
+```bash
+# exit the terminal
+alias e=exit
+
+# clear the terminal window
+alias c=clear
+
+# go up a dir
+alias up='cd ..'
+
+# go to home directory
+alias h='cd ~/'
+
+# go to dev directory
+alias dev='cd ~/dev'
+
+# edit vim config
+alias vconf='vim ~/.vimrc'
+
+# quick ping check
+alias p='ping 8.8.8.8'
+```
+
+## Git
+```bash
+alias gi='git init'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -am'
+alias push='git push'
+alias gl='git log --pretty=oneline --color'
+alias pull='git pull'
+alias gd='git diff'
+alias gb='git branch'
+alias gf='git fetch'
+alias gm='git merge'
+```
+
+## Yarn
+```bash
+alias yi='yarn init'
+alias ya='yarn add'
+alias yad='yarn add --dev'
+alias yr='yarn remove'
+alias ydev='yarn run dev'
+alias ybuild='yarn run build'
+```
+
