@@ -1,8 +1,15 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import { getAllPosts } from '@/lib/api';
+import Post from '@/types/post';
 import Layout from '../components/layout';
 import Hero from '../components/hero';
 
-function Home() {
+type IndexProps = {
+  allPosts: Post[];
+};
+
+function Index({ allPosts }: IndexProps) {
   return (
     <Layout>
       <Head>
@@ -16,4 +23,13 @@ function Home() {
   );
 }
 
-export default Home;
+export default Index;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const fields = ['title', 'slug', 'excerpt', 'date', 'icon', 'tags'];
+  const allPosts = getAllPosts(fields);
+
+  return {
+    props: { allPosts }
+  };
+};
