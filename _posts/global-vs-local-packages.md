@@ -1,0 +1,33 @@
+---
+title: Global vs Local Packages
+excerpt: What is the difference between global and local packages in JavaScript package managers?
+date: 2020-01-10
+icon: /assets/icons/yarn.png
+tags:
+  - JavaScript
+  - Yarn
+---
+
+### Intro
+Something often confusing for new JS developers is the difference between global and local packages.
+
+TLDR: Use global installs for CLI's and packages that you would like available from anywhere in your shell. Local installs for everything else.
+
+### Local packages
+These types of packages are run from the `node_modules` folder of your project. Generally preferred, as the package.json file outlines the specific version each dependency requires resulting in a self-contained dependency environment that is deterministic.
+
+### Global packages
+The main use case is for CLI's, such as [pm2](https://www.npmjs.com/package/pm2) or [create-react-app](https://www.npmjs.com/package/create-react-app). These need to have the ability to run from anywhere in the shell. [Prettier](https://www.npmjs.com/package/prettier) is a good use case for global install that way any rouge JS, HTML, or JSON file can be formatted. The downside with globals is that updating a globally installed package can break dependencies across projects resulting in an impure environment. The yarn documentation advises:
+
+> For the vast majority of packages it is considered a bad practice to have global dependencies because they are implicit. It is much better to add all of your dependencies locally so that they are explicit and anyone else using your project gets the same set of dependencies.
+
+### Damage control
+If you got a little crazy and installed too many globals use the command below to figure out which you'd like to delete.
+
+```bash
+# yarn
+yarn global list
+# npm
+npm list -g --depth 0
+```
+

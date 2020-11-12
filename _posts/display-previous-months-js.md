@@ -1,0 +1,73 @@
+---
+title: Display Current and Previous Months using JS
+excerpt: Function to display current and previous months using JavaScript. Common use case being a months dropdown.
+date: 2020-01-17
+icon: /assets/icons/js.png
+tags:
+  - JavaScript
+---
+
+Traversing my thought process and solution to displaying the current and previous X months in JS. Common use case being for a months dropdown.
+
+We know that a function is going to be needed that accepts arguments of some sort. I decided upon using numMonths (the number of previous months we would like) and includeCurrMonth (whether or not to include the current month). While handling some basic type checking and error handling.
+```js
+function getMonths(numMonths, includeCurrMonth) {
+  if (!moment) throw new Error('Moment.js dependency is required');
+
+  if (typeof numMonths !== 'number')
+    throw new TypeError('numMonths must be a number');
+  if (typeof includeCurrMonth !== 'boolean')
+    throw new TypeError('includeCurrMonth must be a boolean');
+
+}
+
+```
+
+Lets use the includeCurrMonth argument to set whether we would like to start at current month or previous month. Once the start position is set when can start subtracting months. The moment.js library makes this easy via the [subtract](https://momentjs.com/docs/#/manipulating/subtract/) manipulation function. You could easily swap to [dayjs](https://github.com/iamkun/dayjs) which is 96% smaller and shares a nearly identical api as moment.
+```js
+/**
+ * Gets previous {numMonths} including/excluding current month
+ *
+ * @param {number} numMonths - number of total months to include
+ * @param {boolean} includeCurrMonth - whether to include current month
+ * @return {Object[]}
+ * @throws {Error} if Moment.js dependency is undefined
+ * @throws {TypeError} if arguments fail to match parameter types
+ *
+ * @example
+ * // returns array containing 12 objects (current month and 11 previous months)
+ * getMonths(12, true);
+ */
+
+function getMonths(numMonths, includeCurrMonth) {
+  if (!moment) throw new Error('Moment.js dependency is required');
+
+  if (typeof numMonths !== 'number')
+    throw new TypeError('numMonths must be a number');
+  if (typeof includeCurrMonth !== 'boolean')
+    throw new TypeError('includeCurrMonth must be a boolean');
+
+  let start;
+  const months = [];
+  let num = numMonths;
+
+  if (includeCurrMonth) {
+    start = 0;
+  } else {
+    start = 1;
+    num += 1;
+  }
+
+  for (let i = start; i < num; i++) {
+    let d = moment().subtract(i, 'months');
+    months.push({
+      name: d.format('MMM'),
+      id: d.month() + 1,
+      year: d.year()
+    });
+  }
+
+  return months;
+}
+
+```

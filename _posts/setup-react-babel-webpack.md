@@ -1,0 +1,149 @@
+---
+title: Setup React, Babel, and Webpack
+excerpt: You don't need to use create-react-app. Setting up project using Webpack and Babel is easier than you'd think.
+date: 2019-02-25
+icon: /assets/icons/react.png
+tags:
+  - React
+  - Webpack
+---
+
+[Create react app](https://github.com/facebook/create-react-app) makes it extremely easy to get up and running with React providing sensible defaults. However, you're going to reach a point where you need to, or might just plain want to, setup from scratch.
+
+> Code that you cannot trust is code that you do not understand. The reverse is true also: code that you don’t understand is code you can’t trust.  
+> Kyle Simpson, Functional-Light JavaScript
+
+### Prerequisites
+Before we begin you must install your package manager of choice, npm ships by default with node.js. I will be using yarn throughout this tutorial.
+
+### Setup
+Lets begin by create a new directory to house our React application and initialize a package.json file to manage our dependencies etc...
+
+```bash
+mkdir default && cd default && yarn init -y
+```
+
+### Install Babel
+Babel requires a few packages to transpile JSX code properly.
+- [@babel/core](https://babeljs.io/docs/en/babel-core)- the core babel compiler
+- [@babel/cli](https://babeljs.io/docs/en/babel-cli)- the babel command line
+- [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)- smart preset that allows targeting browsers via Browserslist
+- [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react)- provides support for JSX etc...
+- [babel-loader](https://github.com/babel/babel-loader)- allows transpiling JS files using Babel and Webpack
+
+```bash
+yarn add @babel/core @babel/cli @babel/preset-env @babel/preset-react babel-loader -D
+```
+
+### Create Babel config file
+We are now ready to create a `.babelrc` config file. This is where we will tell Babel to use the plugins we just installed.
+```json
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+```
+### Install Webpack
+Webpack requires just a couple of packages to get started.
+- [webpack](https://webpack.js.org/api/)- self explanatory core package which takes care of bundling your assets
+- [webpack-cli](https://webpack.js.org/api/cli/)- provides a set of tools to improve Webpack config setup
+- [webpack-dev-server](https://webpack.js.org/configuration/dev-server/)- provides a dev server that supports hot reloading
+- [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)- generates index.html file including webpack bundle
+- [html-webpack-template](https://www.npmjs.com/package/html-webpack-template)- ability to attach element id to mount Javascript to etc...
+
+```bash
+yarn add webpack webpack-cli webpack-dev-server html-webpack-plugin html-webpack-template -D
+```
+
+### Create Webpack config file
+Webpack 4 does not require a config file but in the majority of cases you will want to use one. We are going to create a webpack.config.js file to store our config. This config specifies that our source files are located in the `/src` directory and outputs our Javascript bundle to `/dist/bundle.js`. The HtmlWebpackPlugin creates our `index.html` file in `/dist` and includes the script tag to output bundle (`bundle.js` is our case).
+```js
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTemplate = require('html-webpack-template');
+const path = require('path');
+
+const config = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
+  },
+  module: {
+    rules: [
+       {
+         test: /\.(js|jsx)$/,
+         use: 'babel-loader',
+         exclude: /node_modules/,
+       },
+     ],
+   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: HtmlWebpackTemplate,
+      appMountId: 'app',
+    }),
+  ],
+};
+
+module.exports = config;
+```
+### Add scripts to package.json
+We are now ready to define some [npm scripts](https://docs.npmjs.com/misc/scripts) to run Webpack which is going to use Babel to transpile our code.
+```json
+{
+  "name": "default",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
+```
+### Create index.js file inside src
+Let's go ahead and test our config by creating a JavaScript file containing a basic React component. Make a folder named `/src` that will house all of our source files. Include some code in `/src/index.js` that will serve as the entry point for our application. Since we specified an appMountId in our Webpack config we can render our app component to the element with id app. We also need to install React and React-DOM.
+
+```bash
+yarn add react react-dom
+```
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+  return (
+    <div>
+      <h1>Hello blog readers</h1>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("app");
+ReactDOM.render(<App />, rootElement);
+```
+Finally we need to start our dev server and test our config.
+
+```bash
+yarn run start:dev
+```
