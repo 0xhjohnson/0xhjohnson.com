@@ -1,50 +1,39 @@
 import fs from 'fs';
 import { join } from 'path';
-import { replace } from 'ramda';
+import { replace, map, sort, descend, prop, all, has } from 'ramda';
 import matter from 'gray-matter';
+import Post from '@/types/post';
 
 const postsDirectory = join(process.cwd(), '_posts');
+
+/*
+ * fine with using synchronous node api since it only runs at build time
+ * normally would prefer to use async api to free up the thread
+ */
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
+export function getPostBySlug(slug: string, includeContent: boolean = false) {
   const actualSlug = replace(/\.md$/, '', slug);
   const fullPath = join(postsDirectory, slug);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
+  const { content, data } = matter(fileContents);
 
-  type MdData = {
-    [key: string]: string;
+  const mdData = {
+    ...data,
+    slug: actualSlug,
+    date: new Date(data.date).toISOString(),
+    ...(includeContent && { content })
   };
-
-  const mdData: MdData = {};
-
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      mdData[field] = actualSlug;
-    }
-    if (field === 'content') {
-      mdData[field] = content;
-    }
-    if (field === 'date') {
-      data[field] = new Date(data[field]).toISOString();
-    }
-
-    if (data[field]) {
-      mdData[field] = data[field];
-    }
-  });
 
   return mdData;
 }
 
-export function getAllPosts(fields: string[] = []) {
+export function getAllPosts() {
   const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    .sort((x, y) => (x.date > y.date ? -1 : 1));
+  const unsortedPosts = map(getPostBySlug, slugs);
 
-  return posts;
+  return sort(descend(prop('date')))(unsortedPosts);
 }

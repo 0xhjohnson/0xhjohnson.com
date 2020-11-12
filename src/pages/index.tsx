@@ -10,6 +10,7 @@ type IndexProps = {
 };
 
 function Index({ allPosts }: IndexProps) {
+  console.log(allPosts);
   return (
     <Layout>
       <Head>
@@ -26,8 +27,7 @@ function Index({ allPosts }: IndexProps) {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fields = ['title', 'slug', 'excerpt', 'date', 'icon', 'tags'];
-  const allPosts = getAllPosts(fields);
+  const allPosts = getAllPosts();
 
   return {
     props: { allPosts }
