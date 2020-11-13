@@ -3,6 +3,7 @@ type Post = {
   title: string;
   excerpt: string;
   date: string;
+  isoDate: string;
   icon: string;
   tags: string[];
 };

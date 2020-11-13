@@ -23,7 +23,8 @@ export function getPostBySlug(slug: string, includeContent: boolean = false) {
   const mdData = {
     ...data,
     slug: actualSlug,
-    date: new Date(data.date).toISOString(),
+    date: new Date(data.date).toLocaleDateString(),
+    isoDate: new Date(data.date).toISOString(),
     ...(includeContent && { content })
   };
 
@@ -34,5 +35,5 @@ export function getAllPosts() {
   const slugs = getPostSlugs();
   const unsortedPosts = map(getPostBySlug, slugs);
 
-  return sort(descend(prop('date')))(unsortedPosts);
+  return sort(descend(prop('isoDate')))(unsortedPosts);
 }
