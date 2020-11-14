@@ -34,6 +34,8 @@ function PostCard({ post }: Props) {
               </p>
               <div className="flex text-sm leading-5 text-gray-500">
                 <time>{post.date}</time>
+                <span className="mx-1">&middot;</span>
+                <span>{post.readTime}</span>
               </div>
             </div>
           </div>

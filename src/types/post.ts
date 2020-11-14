@@ -6,6 +6,7 @@ type Post = {
   isoDate: string;
   icon: string;
   tags: string[];
+  readTime: string;
 };
 
 export default Post;

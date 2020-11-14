@@ -2,6 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import { replace, map, sort, descend, prop } from 'ramda';
 import matter from 'gray-matter';
+import readingTime from 'reading-time';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
@@ -25,6 +26,7 @@ export function getPostBySlug(slug: string, includeContent: boolean = false) {
     slug: actualSlug,
     date: new Date(data.date).toLocaleDateString(),
     isoDate: new Date(data.date).toISOString(),
+    readTime: readingTime(content).text,
     ...(includeContent && { content })
   };
 
