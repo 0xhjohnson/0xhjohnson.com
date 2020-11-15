@@ -9,7 +9,7 @@ tags:
 
 The [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) function iterates through an array executing the provided callback function once for each item in the array. Resulting to a single output value.
 
-![reduce-prototype](/assets/reduce-function-explained/reduce-prototype.png)
+![reduce-prototype](/assets/posts/reduce-function-explained/reduce-prototype.png)
 
 The `callbackFn` above receives four values `(accumulator, current, index, sourceArray)` but often you only need the first two `(accumulator, current)`.
 
@@ -50,7 +50,7 @@ const total = players.reduce(sumReducer, 0); // total = 86.5
 If you want a high level abstraction lets bring in Geralt of Rivia (for the Witcher fans). Geralt is going to be our reduce method. You pass him an an array to iterate over and a spell *reducer* function to cast on each item in the array. You also tell him the output is of **type** number and starts at 0.
 
 
-![Geralt of Rivia](/assets/reduce-function-explained/geralt.png)
+![Geralt of Rivia](/assets/posts/reduce-function-explained/geralt.png)
 
 Geralt eagerly awaits your command. Let's figure out how to get the names of all the *Active* players. We want the output to be an array of strings containing the name of each active player.
 ```js

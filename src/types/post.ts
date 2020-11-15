@@ -7,6 +7,7 @@ type Post = {
   icon: string;
   tags: string[];
   readTime: string;
+  content: string;
 };
 
 export default Post;

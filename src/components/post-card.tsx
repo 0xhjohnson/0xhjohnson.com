@@ -13,7 +13,7 @@ function PostCard({ post }: Props) {
 
   return (
     <section>
-      <Link as={`/post/${post.slug}`} href="/post/[slug]">
+      <Link as={`/${post.slug}`} href="/[slug]">
         <a className="block p-4 rounded-md border border-gray-200 hover:shadow-md transition duration-150 ease-in-out">
           <p className="my-3 text-xl leading-7 font-semibold text-gray-900">
             {post.title}
