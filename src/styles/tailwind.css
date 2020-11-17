@@ -14,7 +14,7 @@
   article ol,
   article ul,
   article table {
-    @apply mb-5 text-gray-700;
+    @apply mb-6 text-gray-700 leading-relaxed;
   }
 
   article ul li {
@@ -74,5 +74,9 @@
 
   article a:hover {
     @apply text-blue-500;
+  }
+
+  article :not(pre) > code {
+    @apply px-1 text-gray-900 border border-gray-200 rounded bg-gray-50 leading-7;
   }
 }

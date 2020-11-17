@@ -19,7 +19,12 @@ type Renderer = {
 const renderers = {
   code: ({ language, value }: Renderer) => {
     return (
-      <SyntaxHighlighter style={nord} language={language} children={value} />
+      <SyntaxHighlighter
+        style={nord}
+        language={language}
+        children={value}
+        customStyle={{ marginBottom: '2em' }}
+      />
     );
   }
 };
