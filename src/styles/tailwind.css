@@ -6,60 +6,57 @@
 @tailwind base;
 /* purgecss end ignore */
 @tailwind components;
-
 @tailwind utilities;
 
-article p,
-dl,
-ol,
-ul,
-table {
-  @apply mb-5 text-gray-700;
-}
+@layer base {
+  article p,
+  article dl,
+  article ol,
+  article ul,
+  article table {
+    @apply mb-5 text-gray-700;
+  }
 
-article ul li {
-  @apply relative mb-1 pl-5 ml-2;
-}
+  article ul li {
+    @apply relative mb-1 pl-5 ml-2;
+  }
 
-article ul li::before {
-  @apply absolute left-0 text-gray-500 leading-5;
-  content: '\2022';
-}
+  article ul li::before {
+    @apply absolute left-0 text-gray-500 leading-5;
+    content: '\2022';
+  }
 
-article h1,
-h2,
-h3,
-h4,
-h5 {
-  @apply mb-3 antialiased;
-}
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5 {
+    @apply mb-3 antialiased;
+  }
 
-article h1:not(:first-child),
-h2:not(:first-child),
-h3:not(:first-child) {
-  @apply mt-10;
-}
+  article h1:not(:first-child),
+  article h2:not(:first-child),
+  article h3:not(:first-child) {
+    @apply mt-10;
+  }
 
-article h1 {
-  @apply text-3xl text-gray-900 font-bold tracking-tight;
-}
+  article h1 {
+    @apply text-3xl text-gray-900 font-bold tracking-tight;
+  }
 
-article h2 {
-  @apply text-2xl text-gray-900 font-bold pb-1 border-b border-gray-200;
-}
+  article h2 {
+    @apply text-2xl text-gray-900 font-bold pb-1 border-b border-gray-200;
+  }
 
-article h3 {
-  @apply text-2xl text-gray-800 font-bold;
-}
+  article h3 {
+    @apply text-2xl text-gray-800 font-bold;
+  }
 
-article h4 {
-  @apply text-xl text-gray-700 font-bold;
-}
+  article h4 {
+    @apply text-xl text-gray-700 font-bold;
+  }
 
-article h5 {
-  @apply text-lg text-gray-700 font-bold;
-}
-
-article pre {
-  @apply mb-6;
+  article h5 {
+    @apply text-lg text-gray-700 font-bold;
+  }
 }

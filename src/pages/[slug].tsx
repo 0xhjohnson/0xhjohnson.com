@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { map, replace } from 'ramda';
-import { getPostBySlug, getAllPosts, getPostSlugs } from '@/lib/api';
+import { getPostBySlug, getPostSlugs } from '@/lib/api';
 import Post from '@/types/post';
 import Layout from '@/components/layout';
 
