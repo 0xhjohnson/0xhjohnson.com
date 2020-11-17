@@ -59,4 +59,20 @@
   article h5 {
     @apply text-lg text-gray-700 font-bold;
   }
+
+  article blockquote {
+    @apply px-4 text-gray-400 border-l-4 border-gray-200;
+  }
+
+  article blockquote p {
+    @apply text-gray-600;
+  }
+
+  article a {
+    @apply text-blue-600 transition duration-150;
+  }
+
+  article a:hover {
+    @apply text-blue-500;
+  }
 }
