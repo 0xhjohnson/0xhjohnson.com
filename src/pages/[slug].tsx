@@ -1,19 +1,34 @@
 import React from 'react';
-import { pluck, reduce } from 'ramda';
-import { getPostBySlug, getAllPosts } from '@/lib/api';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { map, replace } from 'ramda';
+import { getPostBySlug, getAllPosts, getPostSlugs } from '@/lib/api';
 import Post from '@/types/post';
-import RenderMarkdown from '@/components/render-markdown';
 import Layout from '@/components/layout';
 
 type Props = {
   post: Post;
 };
 
+type Renderer = {
+  language: string;
+  value: string;
+};
+
+const renderers = {
+  code: ({ language, value }: Renderer) => {
+    return (
+      <SyntaxHighlighter style={nord} language={language} children={value} />
+    );
+  }
+};
+
 function BlogPost({ post }: Props) {
   return (
     <Layout>
       <article className="px-6 max-w-2xl mx-auto">
-        <RenderMarkdown content={post.content} />
+        <ReactMarkdown renderers={renderers} children={post.content} />
       </article>
     </Layout>
   );
@@ -38,20 +53,15 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts();
-  const postSlugs = pluck('slug', posts);
-
-  const reducer = (acc: Params[], curr: string) => {
-    acc.push({
-      params: { slug: curr }
-    });
-
-    return acc;
-  };
-  const slugPaths = reduce(reducer, [], postSlugs);
+  const slugs = getPostSlugs();
+  const actualSlugs = map(replace(/\.md$/, ''))(slugs);
 
   return {
-    paths: slugPaths,
+    paths: actualSlugs.map((slug) => {
+      return {
+        params: { slug }
+      };
+    }),
     fallback: false
   };
 }
