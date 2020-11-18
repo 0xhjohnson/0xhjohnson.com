@@ -18,7 +18,8 @@ Let's assume we have an array of objects containing a list of baseball players i
 const players = [
   {
     name: 'Ronald Acuna Jr.',
-    salary: 12.5,    status: 'Active'
+    salary: 12.5,
+    status: 'Active'
   },
   {
     name: 'Chris Sale',
