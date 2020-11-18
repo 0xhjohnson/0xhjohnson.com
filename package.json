@@ -28,6 +28,7 @@
     "autoprefixer": "^10.0.2",
     "husky": "^4.3.0",
     "postcss": "^8.1.7",
+    "postcss-nesting": "^7.0.1",
     "prettier": "^2.1.2",
     "tailwindcss": "^2.0.1"
   },
