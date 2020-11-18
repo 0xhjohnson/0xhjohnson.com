@@ -16,7 +16,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Inter', ...defaultTheme.fontFamily.sans]
+      sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      mono: ['Dank mono', ...defaultTheme.fontFamily.mono]
     }
   },
   variants: {},

@@ -1,10 +1,7 @@
-:root {
-  font-family: 'Inter var', sans-serif;
-}
-
 /* purgecss start ignore */
 @tailwind base;
 /* purgecss end ignore */
+
 @tailwind components;
 @tailwind utilities;
 
@@ -31,7 +28,7 @@
   article h3,
   article h4,
   article h5 {
-    @apply mb-3 antialiased;
+    @apply mb-3;
   }
 
   article h1:not(:first-child),

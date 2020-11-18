@@ -24,6 +24,7 @@ const renderers = {
         language={language}
         children={value}
         customStyle={{ marginBottom: '2em' }}
+        codeTagProps={{ className: 'font-mono' }}
       />
     );
   }

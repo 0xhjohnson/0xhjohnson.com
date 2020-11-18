@@ -12,6 +12,12 @@ class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="true"
           />
+          <link
+            href="/fonts/DankMono-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="true"
+          />
         </Head>
         <body>
           <Main />
