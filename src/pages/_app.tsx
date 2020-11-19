@@ -3,7 +3,7 @@ import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="antialiased">
+    <div className="antialiased dark:bg-gray-800">
       <Component {...pageProps} />
     </div>
   );

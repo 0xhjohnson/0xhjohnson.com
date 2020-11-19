@@ -8,18 +8,18 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    colors: {
-      gray: colors.coolGray,
-      red: colors.rose,
-      green: colors.emerald,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      pink: colors.pink
-    },
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         mono: ['Dank mono', ...defaultTheme.fontFamily.mono]
+      },
+      colors: {
+        gray: colors.coolGray,
+        red: colors.rose,
+        green: colors.emerald,
+        blue: colors.blue,
+        indigo: colors.indigo,
+        pink: colors.pink
       }
     }
   },

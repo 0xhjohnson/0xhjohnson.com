@@ -17,7 +17,7 @@ function Index({ allPosts }: IndexProps) {
         <title>0xhjohnson — A blog by Hunter Johnson</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-white mt-24 px-4 max-w-2xl mx-auto">
+      <div className="pt-24 px-4 max-w-2xl mx-auto">
         <Hero />
         <div className="grid my-12 gap-y-12">
           {allPosts.map((post) => (
