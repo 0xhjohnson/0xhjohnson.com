@@ -33,7 +33,7 @@ const renderers = {
 function BlogPost({ post }: Props) {
   return (
     <Layout>
-      <article className="px-6 max-w-2xl mx-auto">
+      <article className="prose px-6 max-w-2xl mx-auto">
         <ReactMarkdown renderers={renderers} children={post.content} />
       </article>
     </Layout>
