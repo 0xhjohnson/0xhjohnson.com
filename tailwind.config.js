@@ -20,10 +20,64 @@ module.exports = {
         blue: colors.blue,
         indigo: colors.indigo,
         pink: colors.pink
-      }
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            h2: {
+              fontWeight: '700',
+              letterSpacing: theme('letterSpacing.tight'),
+              color: theme('colors.gray.900')
+            },
+            h3: {
+              fontWeight: '600',
+              color: theme('colors.gray.900')
+            },
+            'ol li:before': {
+              fontWeight: '600',
+              color: theme('colors.gray.500')
+            },
+            'ul li:before': {
+              backgroundColor: theme('colors.gray.400')
+            },
+            code: {
+              color: theme('colors.gray.900'),
+              backgroundColor: theme('colors.gray.50'),
+              padding: theme('spacing[0.5]'),
+              borderRadius: theme('borderRadius.md'),
+              borderWidth: theme('borderWidth.DEFAULT'),
+              borderColor: theme('colors.gray.200')
+            },
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            },
+            a: {
+              color: theme('colors.blue.700'),
+              transition: theme('transitionProperty.colors'),
+              '&:hover': {
+                color: theme('colors.blue.500')
+              }
+            },
+            pre: {
+              color: theme('colors.gray.200'),
+              backgroundColor: theme('colors.gray.800')
+            },
+            blockquote: {
+              color: theme('colors.gray.900'),
+              borderLeftColor: theme('colors.gray.200')
+            }
+          }
+        }
+      })
     }
   },
-  variants: {},
+  variants: {
+    typography: ['dark']
+  },
   plugins: [
     require('@tailwindcss/typography'),
     function ({ addBase }) {
