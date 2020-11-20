@@ -71,13 +71,18 @@ module.exports = {
               borderLeftColor: theme('colors.gray.200')
             }
           }
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.300')
+          }
         }
       })
     }
   },
   variants: {
     extend: {
-      typography: ['dark']
+      typography: ['responsive', 'dark']
     }
   },
   plugins: [

@@ -31,7 +31,7 @@ const renderers = {
 
 function BlogPost({ post }: Props) {
   return (
-    <article className="prose">
+    <article className="prose dark:prose-dark">
       <ReactMarkdown renderers={renderers} children={post.content} />
     </article>
   );
