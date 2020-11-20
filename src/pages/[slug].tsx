@@ -5,7 +5,6 @@ import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { map, replace } from 'ramda';
 import { getPostBySlug, getPostSlugs } from '@/lib/api';
 import Post from '@/types/post';
-import Layout from '@/components/layout';
 
 type Props = {
   post: Post;
@@ -32,11 +31,9 @@ const renderers = {
 
 function BlogPost({ post }: Props) {
   return (
-    <Layout>
-      <article className="prose px-6 max-w-2xl mx-auto">
-        <ReactMarkdown renderers={renderers} children={post.content} />
-      </article>
-    </Layout>
+    <article className="prose">
+      <ReactMarkdown renderers={renderers} children={post.content} />
+    </article>
   );
 }
 
