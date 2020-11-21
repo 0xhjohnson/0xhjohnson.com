@@ -22,7 +22,6 @@ const renderers = {
         style={nord}
         language={language}
         children={value}
-        customStyle={{ marginBottom: '2em' }}
         codeTagProps={{ className: 'font-mono' }}
       />
     );
