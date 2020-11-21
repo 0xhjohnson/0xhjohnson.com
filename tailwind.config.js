@@ -38,17 +38,54 @@ module.exports = {
             'code::after': {
               content: '""'
             },
-            a: {
-              color: theme('colors.blue.600'),
-              '&:hover': {
-                color: theme('colors.blue.500')
-              }
+            'a:hover': {
+              color: theme('colors.gray.500')
             }
           }
         },
         dark: {
           css: {
-            color: theme('colors.gray.200')
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.gray.100'),
+              '&:hover': {
+                color: theme('colors.gray.200')
+              }
+            },
+            strong: {
+              color: theme('colors.gray.100')
+            },
+            'ol > li::before': {
+              color: theme('colors.gray.400')
+            },
+            'ul > li::before': {
+              backgroundColor: theme('colors.gray.700')
+            },
+            hr: {
+              borderColor: theme('colors.gray.700')
+            },
+            blockquote: {
+              color: theme('colors.gray.100'),
+              borderLeftColor: theme('colors.gray.700')
+            },
+            'h1, h2, h3, h4': {
+              color: theme('colors.gray.100')
+            },
+            code: {
+              color: theme('colors.gray.100'),
+              backgroundColor: theme('colors.gray.900'),
+              padding: theme('spacing[0.5]'),
+              borderRadius: theme('borderRadius.md'),
+              borderWidth: theme('borderWidth.DEFAULT'),
+              borderColor: theme('colors.gray.700')
+            },
+            'a code': {
+              color: theme('colors.gray.100')
+            },
+            pre: {
+              color: theme('colors.gray.200'),
+              backgroundColor: theme('colors.gray.900')
+            }
           }
         }
       })
