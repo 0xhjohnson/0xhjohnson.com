@@ -85,6 +85,13 @@ module.exports = {
             pre: {
               color: theme('colors.gray.200'),
               backgroundColor: theme('colors.gray.900')
+            },
+            thead: {
+              color: theme('colors.gray.100'),
+              borderBottomColor: theme('colors.gray.600')
+            },
+            'tbody tr': {
+              borderBottomColor: theme('colors.gray.700')
             }
           }
         }
