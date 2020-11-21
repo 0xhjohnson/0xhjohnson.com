@@ -5,7 +5,7 @@ import Layout from '@/components/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="antialiased dark:bg-gray-800">
+    <div className="antialiased">
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>

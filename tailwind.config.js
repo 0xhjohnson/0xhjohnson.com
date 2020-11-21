@@ -74,7 +74,7 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.gray.300')
+            color: theme('colors.gray.200')
           }
         }
       })

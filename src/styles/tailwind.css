@@ -4,3 +4,9 @@
 
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-gray-800;
+  }
+}
