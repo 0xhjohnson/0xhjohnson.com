@@ -73,11 +73,12 @@ module.exports = {
             },
             code: {
               color: theme('colors.gray.100'),
-              backgroundColor: theme('colors.gray.900'),
+              backgroundColor: theme('colors.gray.800'),
               padding: theme('spacing[0.5]'),
               borderRadius: theme('borderRadius.md'),
               borderWidth: theme('borderWidth.DEFAULT'),
-              borderColor: theme('colors.gray.700')
+              borderColor: theme('colors.gray.700'),
+              fontWeight: '400'
             },
             'a code': {
               color: theme('colors.gray.100')
