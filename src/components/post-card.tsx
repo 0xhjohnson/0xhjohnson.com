@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Img from 'next/image';
 import { join } from 'ramda';

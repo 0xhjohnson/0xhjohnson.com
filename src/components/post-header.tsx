@@ -1,4 +1,3 @@
-import React from 'react';
 import dayjs from 'dayjs';
 import Img from 'next/image';
 import Post from '@/types/post';
