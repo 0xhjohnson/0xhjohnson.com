@@ -1,15 +1,18 @@
+import Head from 'next/head';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { map, replace } from 'ramda';
-import { getPostBySlug, getPostSlugs } from '@/lib/api';
+import { getPostBySlug, getPostSlugs, getMeta } from '@/lib/api';
 import Post from '@/types/post';
+import Meta from '@/types/meta';
 
 import PostHeader from '@/components/post-header';
 
 type Props = {
   post: Post;
+  meta: Meta;
 };
 
 type Renderer = {
@@ -30,9 +33,24 @@ const renderers = {
   }
 };
 
-function BlogPost({ post }: Props) {
+function BlogPost({ post, meta }: Props) {
   return (
     <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
+        {/* open graph */}
+        <meta name="og:url" content={meta.url} />
+        <meta name="og:type" content="article" />
+        <meta name="og:title" content={post.title} />
+        <meta name="og:description" content={post.excerpt} />
+        {/* twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={meta.author} />
+        <meta name="twitter:creator" content={meta.author} />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+      </Head>
       <PostHeader post={post} />
       <article className="prose dark:prose-dark pt-10 pb-12">
         <ReactMarkdown renderers={renderers} children={post.content} />
@@ -51,10 +69,12 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, true);
+  const meta = JSON.parse(getMeta());
 
   return {
     props: {
-      post
+      post,
+      meta
     }
   };
 }
