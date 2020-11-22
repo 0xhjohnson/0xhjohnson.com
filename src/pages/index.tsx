@@ -29,7 +29,7 @@ function Index({ allPosts, meta }: IndexProps) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
       </Head>
-      <div className="pt-24 divide-y divide-gray-200 dark:divide-gray-600">
+      <div className="pt-16 divide-y divide-gray-200 dark:divide-gray-600">
         <Hero />
         <div className="grid py-12 gap-y-12">
           {allPosts.map((post) => (
