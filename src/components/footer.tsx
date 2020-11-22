@@ -4,7 +4,7 @@ import { FaTwitch, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <footer className="pb-12 pt-20">
+    <footer className="pb-12">
       <section className="flex flex-col items-center">
         <div className="flex max-w-xs">
           <a

@@ -9,6 +9,7 @@
     "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css}}' '!package.json'"
   },
   "dependencies": {
+    "dayjs": "^1.9.6",
     "gray-matter": "^4.0.2",
     "next": "10.0.1",
     "ramda": "^0.27.1",
