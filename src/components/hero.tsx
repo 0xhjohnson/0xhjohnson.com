@@ -6,7 +6,7 @@ function Hero() {
     <div>
       <PageTitle title="Recent posts" />
       <p className="mt-4 text-xl text-gray-500 pb-12 dark:text-gray-400">
-        Personal blog by Hunter Johnson aka 0xhjohnson
+        Personal blog by Hunter Johnson aka 0xhjohnson.
       </p>
     </div>
   );

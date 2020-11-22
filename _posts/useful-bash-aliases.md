@@ -9,7 +9,7 @@ tags:
 
 Ever wondered if there was an easier way to issue common commands within your terminal of choice. Bash aliases to the rescue. Bash aliases allow me to type less, resulting in fewer incorrect commands.
 
-Add these to your bash config file. Usually located at`~/.bashrc`
+Add these to your bash config file. Usually located at `~/.bashrc`
 
 ## General
 ```bash
