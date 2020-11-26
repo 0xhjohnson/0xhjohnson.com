@@ -10,7 +10,7 @@ function NavBar() {
   const router = useRouter();
 
   return (
-    <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-600 py-6 md:justify-start md:space-x-10">
+    <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-800 py-6 md:justify-start md:space-x-10">
       <div className="flex w-0 flex-1">
         <Link href="/">
           <a>

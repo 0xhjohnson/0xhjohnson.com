@@ -18,7 +18,7 @@ function PostHeader({ post }: Props) {
           {formattedDate}
         </time>
         <PageTitle title={post.title} />
-        <div className="pt-6 pb-10 flex justify-center items-center border-b border-gray-200 dark:border-gray-700">
+        <div className="pt-6 pb-10 flex justify-center items-center border-b-2 border-gray-100 dark:border-gray-800">
           <div className="flex">
             <Img
               src="/assets/avatar.png"
