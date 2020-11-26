@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import classNames from 'classnames';
+import { useRouter } from 'next/router';
 import { HiMenu } from 'react-icons/hi';
 
+import ActiveLink from '@/components/active-link';
+
 function NavBar() {
+  const router = useRouter();
+
   return (
     <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-600 py-6 md:justify-start md:space-x-10">
       <div className="flex w-0 flex-1">
@@ -24,26 +30,10 @@ function NavBar() {
         </button>
       </div>
       <nav className="hidden md:flex space-x-10">
-        <Link href="/">
-          <a className="font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition">
-            Home
-          </a>
-        </Link>
-        <Link href="/blog">
-          <a className="font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition">
-            Blog
-          </a>
-        </Link>
-        <Link href="/about">
-          <a className="font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition">
-            About
-          </a>
-        </Link>
-        <Link href="/stats">
-          <a className="font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition">
-            Stats
-          </a>
-        </Link>
+        <ActiveLink href="/">Home</ActiveLink>
+        <ActiveLink href="/blog">Blog</ActiveLink>
+        <ActiveLink href="/about">About</ActiveLink>
+        <ActiveLink href="/stats">Stats</ActiveLink>
       </nav>
     </div>
   );

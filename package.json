@@ -9,6 +9,7 @@
     "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css}}' '!package.json'"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "dayjs": "^1.9.6",
     "gray-matter": "^4.0.2",
     "next": "10.0.1",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.3.1",
+    "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.6",
     "@types/ramda": "^0.27.32",
     "@types/react": "^16.9.56",
