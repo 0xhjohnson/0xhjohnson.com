@@ -24,6 +24,10 @@ function NavBar() {
     'text-gray-600'
   );
 
+  const toggleMobileMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="relative">
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
@@ -43,7 +47,7 @@ function NavBar() {
           <div className="-mr-2 -my-2 md:hidden">
             <button
               className="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMobileMenu}
             >
               <span className="sr-only">Open menu</span>
               <HiMenu className="h-6 w-6" />
@@ -80,7 +84,7 @@ function NavBar() {
               <div className="-mr-2">
                 <button
                   className="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={toggleMobileMenu}
                 >
                   <span className="sr-only">Close menu</span>
                   <HiX className="h-6 w-6" />
@@ -93,21 +97,25 @@ function NavBar() {
                   href="/"
                   title="Home"
                   icon={<HiOutlineHome className={iconClasses} />}
+                  handleClick={toggleMobileMenu}
                 />
                 <MobileActiveLink
                   href="/blog"
                   title="Blog"
                   icon={<HiOutlineBookOpen className={iconClasses} />}
+                  handleClick={toggleMobileMenu}
                 />
                 <MobileActiveLink
                   href="/about"
                   title="About"
                   icon={<HiOutlineUserCircle className={iconClasses} />}
+                  handleClick={toggleMobileMenu}
                 />
                 <MobileActiveLink
                   href="/stats"
                   title="Stats"
                   icon={<HiOutlineChartBar className={iconClasses} />}
+                  handleClick={toggleMobileMenu}
                 />
               </nav>
             </div>

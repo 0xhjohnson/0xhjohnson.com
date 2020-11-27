@@ -5,10 +5,11 @@ import { useRouter } from 'next/router';
 type Props = {
   href: string;
   title: string;
+  handleClick: () => void;
   icon?: React.ReactNode;
 };
 
-function MobileActiveLink({ href, title, icon }: Props) {
+function MobileActiveLink({ href, title, handleClick, icon }: Props) {
   const router = useRouter();
 
   const linkClasses = classNames(
@@ -30,7 +31,7 @@ function MobileActiveLink({ href, title, icon }: Props) {
 
   return (
     <Link href={href}>
-      <a className={linkClasses}>
+      <a className={linkClasses} onClick={handleClick}>
         {icon}
         <span className="ml-3 font-medium">{title}</span>
       </a>
