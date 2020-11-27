@@ -68,7 +68,7 @@ function NavBar() {
         leaveTo="opacity-0 scale-95"
         className="absolute z-50 top-0 inset-x-0 p-2 transtion transform origin-top-right md:hidden"
       >
-        <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-gray-700 bg-white dark:bg-gray-900 divide-y-2 divide-gray-50">
+        <div className="rounded-lg shadow-lg ring-1 ring-gray-700 ring-opacity-10 dark:ring-gray-300 bg-white dark:bg-gray-900 divide-y-2 divide-gray-50">
           <div className="pt-5 pb-6 px-5">
             <div className="flex items-center justify-between">
               <Image
