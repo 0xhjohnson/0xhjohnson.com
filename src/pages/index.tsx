@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next';
 import { getAllPosts, getMeta } from '@/lib/api';
 import Post from '@/types/post';
 import Meta from '@/types/meta';
-import Layout from '@/components/layout';
 import Hero from '@/components/hero';
 import PostCard from '@/components/post-card';
 
@@ -14,7 +13,7 @@ type IndexProps = {
 
 function Index({ allPosts, meta }: IndexProps) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
@@ -38,7 +37,7 @@ function Index({ allPosts, meta }: IndexProps) {
           ))}
         </div>
       </div>
-    </Layout>
+    </>
   );
 }
 

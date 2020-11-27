@@ -9,6 +9,7 @@
     "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css}}' '!package.json'"
   },
   "dependencies": {
+    "@headlessui/react": "^0.2.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.9.6",
     "gray-matter": "^4.0.2",

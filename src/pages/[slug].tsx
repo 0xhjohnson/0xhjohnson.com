@@ -6,7 +6,6 @@ import { map, replace } from 'ramda';
 import { getPostBySlug, getPostSlugs, getMeta } from '@/lib/api';
 import Post from '@/types/post';
 import Meta from '@/types/meta';
-import Layout from '@/components/layout';
 import PostHeader from '@/components/post-header';
 
 type Props = {
@@ -34,7 +33,7 @@ const renderers = {
 
 function BlogPost({ post, meta }: Props) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt} />
@@ -54,7 +53,7 @@ function BlogPost({ post, meta }: Props) {
       <article className="prose dark:prose-dark pt-10 pb-12">
         <ReactMarkdown renderers={renderers} children={post.content} />
       </article>
-    </Layout>
+    </>
   );
 }
 
