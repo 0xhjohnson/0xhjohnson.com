@@ -18,9 +18,9 @@ class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="true"
           />
+          <script src="noflash.js" />
         </Head>
         <body>
-          <script src="noflash.js" />
           <Main />
           <NextScript />
         </body>
