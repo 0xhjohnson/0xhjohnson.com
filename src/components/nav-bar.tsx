@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import {
   HiMenu,
@@ -13,7 +14,10 @@ import {
 import { Transition } from '@headlessui/react';
 import ActiveLink from '@/components/active-link';
 import MobileActiveLink from '@/components/mobile-active-link';
-import ModeToggle from '@/components/mode-toggle';
+
+const ModeToggle = dynamic(() => import('@/components/mode-toggle'), {
+  ssr: false
+});
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
