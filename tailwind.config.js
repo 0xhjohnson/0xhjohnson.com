@@ -80,6 +80,13 @@ module.exports = {
               borderColor: theme('colors.gray.700'),
               fontWeight: '400'
             },
+            'pre > code': {
+              backgroundColor: 'transparent',
+              borderWidth: '0',
+              borderRadius: '0',
+              padding: '0',
+              borderColor: 'transparent'
+            },
             'a code': {
               color: theme('colors.gray.100')
             },
