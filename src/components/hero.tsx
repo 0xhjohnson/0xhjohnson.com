@@ -1,11 +1,16 @@
 import PageTitle from '@/components/page-title';
 
-function Hero() {
+type Props = {
+  title: string;
+  subtitle: string;
+};
+
+function Hero({ title, subtitle }: Props) {
   return (
     <div>
-      <PageTitle title="Recent posts" />
-      <p className="mt-4 text-xl text-gray-500 pb-12 dark:text-gray-400">
-        Personal blog by Hunter Johnson aka 0xhjohnson.
+      <PageTitle title={title} />
+      <p className="mt-5 text-lg sm:text-xl text-gray-500 pb-12 dark:text-gray-400">
+        {subtitle}
       </p>
     </div>
   );
