@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { NowRequest, NowResponse } from '@vercel/node';
 import { Endpoints } from '@octokit/types';
-import { filter, propEq, reduce, pathOr } from 'ramda';
+import { reduce, pathOr } from 'ramda';
 
 type usersReposResponse = Endpoints['GET /users/{username}/repos']['response'];
 
@@ -24,12 +24,11 @@ export default async function (req: NowRequest, res: NowResponse) {
       }
     );
     const repos = await reposRes.json();
-    const myRepos = filter(propEq('fork', false), repos);
 
     const starsReducer = (acc: number, curr: usersReposResponse['data']) => {
       return acc + pathOr(0, ['stargazers_count'], curr);
     };
-    const stars = reduce(starsReducer, 0, myRepos);
+    const stars = reduce(starsReducer, 0, repos);
 
     res.setHeader('Cache-Control', 's-max-age=360, stale-while-revalidate');
     return res.json({
