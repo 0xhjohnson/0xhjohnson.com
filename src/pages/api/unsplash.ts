@@ -10,12 +10,14 @@ export default async function (req: NowRequest, res: NowResponse) {
     const url = `https://api.unsplash.com/users/0xhjohnson/statistics/?${qs.stringify(
       params
     )}`;
+    console.log(url);
 
     const stats = await fetch(url, {
       headers: {
         Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_TOKEN}`
       }
     });
+    console.log(stats);
     const { downloads, views } = await stats.json();
 
     res.setHeader('Cache-Control', 's-max-age=360, stale-while-revalidate');
