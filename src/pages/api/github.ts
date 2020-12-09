@@ -25,7 +25,11 @@ export default async function (req: NowRequest, res: NowResponse) {
       R.reduce((acc, curr) => acc + Number(curr['stargazers_count']), 0)
     );
 
-    res.setHeader('Cache-Control', 's-max-age=360, stale-while-revalidate');
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=1200, stale-while-revalidate=600'
+    );
+
     return res.json({
       followers: user.followers,
       stars

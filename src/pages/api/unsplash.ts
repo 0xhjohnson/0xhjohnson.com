@@ -18,7 +18,11 @@ export default async function (req: NowRequest, res: NowResponse) {
     });
     const { downloads, views } = await stats.json();
 
-    res.setHeader('Cache-Control', 's-max-age=360, stale-while-revalidate');
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=1200, stale-while-revalidate=600'
+    );
+
     return res.json({
       downloads: downloads.total,
       views: views.total
