@@ -39,7 +39,7 @@ function Stats() {
         <p className="text-gray-700 dark:text-gray-300 my-4">
           I grew up on the west coast of Florida and am finishing up my last
           semester at UCF. Graduating with an IT degree with a focus on security
-          and Computer Science. Spend my free time playing Warzone / Cyberpunk,
+          and computer science. Spend my free time playing Warzone / Cyberpunk,
           listening to music, and working out.
         </p>
       </div>
