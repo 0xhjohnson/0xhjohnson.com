@@ -32,22 +32,15 @@ function Stats() {
       />
       <div className="py-6">
         <p className="text-gray-700 dark:text-gray-300 my-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed est
-          eget augue sagittis porta quis lobortis ex. Nulla quis sodales ligula.
-          Fusce imperdiet ut tortor ac sodales. Donec eget urna et ante dapibus
-          sagittis. Nullam interdum purus at diam condimentum tempus. Aliquam
-          erat volutpat. Sed ipsum lorem, congue ac accumsan ac, volutpat a
-          elit. Donec rutrum, lectus sit amet interdum condimentum, velit dolor
-          mattis ligula, euismod pellentesque diam felis nec nibh.
+          Hey, I&apos;m Hunter Johnson. Software engineer, sneakerhead, and
+          keyboard enthusiast known on the internet as 0xhjohnson. I do contract
+          work at Lockheed Martin, building full-stack web apps.
         </p>
         <p className="text-gray-700 dark:text-gray-300 my-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed est
-          eget augue sagittis porta quis lobortis ex. Nulla quis sodales ligula.
-          Fusce imperdiet ut tortor ac sodales. Donec eget urna et ante dapibus
-          sagittis. Nullam interdum purus at diam condimentum tempus. Aliquam
-          erat volutpat. Sed ipsum lorem, congue ac accumsan ac, volutpat a
-          elit. Donec rutrum, lectus sit amet interdum condimentum, velit dolor
-          mattis ligula, euismod pellentesque diam felis nec nibh.
+          I grew up on the west coast of Florida and am finishing up my last
+          semester at UCF. Graduating with an IT degree with a focus on security
+          and Computer Science. Spend my free time playing Warzone / Cyberpunk,
+          listening to music, and working out.
         </p>
       </div>
       <section className="pt-8 pb-16 grid gap-4 grid-cols-1 sm:grid-cols-2">
