@@ -30,7 +30,27 @@ function Stats() {
         title="About"
         subtitle="Up close and personal with 0xhjohnson. Music taste says a lot about a person."
       />
-      <section className="pt-8 pb-12 grid gap-4 grid-cols-1 sm:grid-cols-2">
+      <div className="py-6">
+        <p className="text-gray-700 dark:text-gray-300 my-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed est
+          eget augue sagittis porta quis lobortis ex. Nulla quis sodales ligula.
+          Fusce imperdiet ut tortor ac sodales. Donec eget urna et ante dapibus
+          sagittis. Nullam interdum purus at diam condimentum tempus. Aliquam
+          erat volutpat. Sed ipsum lorem, congue ac accumsan ac, volutpat a
+          elit. Donec rutrum, lectus sit amet interdum condimentum, velit dolor
+          mattis ligula, euismod pellentesque diam felis nec nibh.
+        </p>
+        <p className="text-gray-700 dark:text-gray-300 my-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed est
+          eget augue sagittis porta quis lobortis ex. Nulla quis sodales ligula.
+          Fusce imperdiet ut tortor ac sodales. Donec eget urna et ante dapibus
+          sagittis. Nullam interdum purus at diam condimentum tempus. Aliquam
+          erat volutpat. Sed ipsum lorem, congue ac accumsan ac, volutpat a
+          elit. Donec rutrum, lectus sit amet interdum condimentum, velit dolor
+          mattis ligula, euismod pellentesque diam felis nec nibh.
+        </p>
+      </div>
+      <section className="pt-8 pb-16 grid gap-4 grid-cols-1 sm:grid-cols-2">
         <div>
           <h2 className="pb-4 text-gray-900 dark:text-gray-100 text-2xl font-bold">
             Songs
