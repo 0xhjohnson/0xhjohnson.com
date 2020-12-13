@@ -9,7 +9,7 @@ function Stats() {
         title="Stats"
         subtitle="Dashboard of sorts to track my metrics on platforms such as Unsplash and Github."
       />
-      <section className="pt-8 pb-12">
+      <section className="pt-8 pb-16">
         <Unsplash />
         <Github />
       </section>
