@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import {
   HiMenu,
@@ -13,6 +14,10 @@ import {
 import { Transition } from '@headlessui/react';
 import ActiveLink from '@/components/active-link';
 import MobileActiveLink from '@/components/mobile-active-link';
+
+const ModeToggle = dynamic(() => import('@/components/mode-toggle'), {
+  ssr: false
+});
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +37,8 @@ function NavBar() {
     <div className="relative">
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-800 py-6 md:justify-start md:space-x-10">
-          <div className="flex w-0 flex-1">
+          <ModeToggle />
+          <div className="flex md:w-0 md:flex-1">
             <Link href="/">
               <a>
                 <Image

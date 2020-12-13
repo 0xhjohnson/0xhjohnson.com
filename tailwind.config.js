@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  darkMode: 'media',
+  darkMode: 'class',
   purge: [
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx}'
@@ -79,6 +79,13 @@ module.exports = {
               borderWidth: theme('borderWidth.DEFAULT'),
               borderColor: theme('colors.gray.700'),
               fontWeight: '400'
+            },
+            'pre > code': {
+              backgroundColor: 'transparent',
+              borderWidth: '0',
+              borderRadius: '0',
+              padding: '0',
+              borderColor: 'transparent'
             },
             'a code': {
               color: theme('colors.gray.100')
