@@ -50,7 +50,7 @@ function BlogPost({ post, meta }: Props) {
         <meta name="twitter:description" content={post.excerpt} />
       </Head>
       <PostHeader post={post} />
-      <article className="prose dark:prose-dark pt-10 pb-12">
+      <article className="prose dark:prose-dark pt-10 pb-16">
         <ReactMarkdown renderers={renderers} children={post.content} />
       </article>
     </>
