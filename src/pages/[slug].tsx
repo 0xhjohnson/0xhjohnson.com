@@ -6,7 +6,6 @@ import { map, replace } from 'ramda';
 import { getPostBySlug, getPostSlugs, getMeta } from '@/lib/api';
 import Post from '@/types/post';
 import Meta from '@/types/meta';
-
 import PostHeader from '@/components/post-header';
 
 type Props = {

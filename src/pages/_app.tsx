@@ -1,7 +1,9 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/tailwind.css';
-import Layout from '@/components/layout';
+import Container from '@/components/container';
+import NavBar from '@/components/nav-bar';
+import Footer from '@/components/footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,9 +11,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <NavBar />
+      <Container>
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </Container>
+      <Container>
+        <Footer />
+      </Container>
     </div>
   );
 }
