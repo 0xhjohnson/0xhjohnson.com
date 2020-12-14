@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import {
   HiCursorClick,
@@ -6,36 +5,19 @@ import {
   HiCurrencyDollar,
   HiLightningBolt
 } from 'react-icons/hi';
-import { getAllPosts, getMeta } from '@/lib/api';
+import { getAllPosts } from '@/lib/api';
 import Post from '@/types/post';
-import Meta from '@/types/meta';
 import Hero from '@/components/hero';
 import PostCard from '@/components/post-card';
 import ProjectColumn from '@/components/project-column';
 
 type IndexProps = {
   newPosts: Post[];
-  meta: Meta;
 };
 
-function Index({ newPosts, meta }: IndexProps) {
+function Index({ newPosts }: IndexProps) {
   return (
     <>
-      <Head>
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.description} />
-        {/* open graph */}
-        <meta name="og:url" content={meta.url} />
-        <meta name="og:type" content="article" />
-        <meta name="og:title" content={meta.title} />
-        <meta name="og:description" content={meta.description} />
-        {/* twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content={meta.author} />
-        <meta name="twitter:creator" content={meta.author} />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-      </Head>
       <div className="pt-16 divide-y-2 divide-gray-100 dark:divide-gray-800">
         <Hero
           title="Hey, I'm Hunter Johnson"
@@ -87,9 +69,8 @@ export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
   const newPosts = getAllPosts().slice(0, 3);
-  const meta = JSON.parse(getMeta());
 
   return {
-    props: { newPosts, meta }
+    props: { newPosts }
   };
 };

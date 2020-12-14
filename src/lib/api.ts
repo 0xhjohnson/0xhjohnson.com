@@ -11,11 +11,6 @@ const postsDirectory = join(process.cwd(), '_posts');
  * normally would prefer to use async api to free up the thread
  */
 
-export function getMeta() {
-  const metaPath = join(process.cwd(), 'meta.json');
-  return fs.readFileSync(metaPath, 'utf8');
-}
-
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
