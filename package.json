@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css}}' '!package.json'"
+    "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css,js}}' '!package.json'"
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",
@@ -43,10 +43,11 @@
     "@types/spotify-api": "^0.0.5",
     "@vercel/node": "^1.8.5",
     "autoprefixer": "^10.0.2",
+    "globby": "^11.0.1",
     "husky": "^4.3.0",
     "postcss": "^8.1.7",
     "postcss-nesting": "^7.0.1",
-    "prettier": "^2.1.2",
+    "prettier": "^2.2.1",
     "tailwindcss": "^2.0.1"
   },
   "husky": {

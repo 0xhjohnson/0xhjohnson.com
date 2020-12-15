@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xlmns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://0xhjohnson.com/404</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/about</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/stats</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/display-previous-months-js</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/fix-deleted-gatsby-post-showing</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/global-vs-local-packages</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/imperative-vs-declarative</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/loop-in-react-jsx</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/reduce-function-explained</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/setup-react-babel-webpack</loc>
+  </url>
+
+  <url>
+    <loc>https://0xhjohnson.com/blog/useful-bash-aliases</loc>
+  </url>
+</urlset>
