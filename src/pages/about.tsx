@@ -49,6 +49,12 @@ function Stats() {
             security and computer science. Spend my free time playing Warzone /
             Cyberpunk, listening to music, and working out.
           </p>
+          <a
+            className="text-gray-900 dark:text-gray-100 my-4 hover:underline"
+            href="https://www.discogs.com/user/0xhjohnson/collection"
+          >
+            Discogs
+          </a>
         </div>
         <section className="pt-8 pb-16 grid gap-4 grid-cols-1 sm:grid-cols-2">
           <div>
