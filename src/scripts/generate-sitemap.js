@@ -11,7 +11,8 @@ const prettier = require('prettier');
     '_posts/*.md',
     // exclude
     '!src/pages/_*.tsx',
-    '!src/pages/api'
+    '!src/pages/api',
+    '!src/pages/404.tsx'
   ]);
 
   const sitemap = `
