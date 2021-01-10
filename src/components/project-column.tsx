@@ -2,9 +2,10 @@ type Props = {
   title: string;
   summary: string;
   icon?: React.ReactNode;
+  link: string;
 };
 
-function ProjectColumn({ title, summary, icon }: Props) {
+function ProjectColumn({ title, summary, icon, link }: Props) {
   return (
     <div>
       <div className="flex">
@@ -14,9 +15,12 @@ function ProjectColumn({ title, summary, icon }: Props) {
           </div>
         </div>
         <div className="ml-4">
-          <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
+          <a
+            className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:underline"
+            href={link}
+          >
             {title}
-          </p>
+          </a>
           <p className="mt-2 text-gray-500 dark:text-gray-400">{summary}</p>
         </div>
       </div>

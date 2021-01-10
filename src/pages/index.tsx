@@ -42,21 +42,25 @@ function Index({ newPosts }: IndexProps) {
               title="Captcha Harvester"
               summary="Node cli to casually harvest captchas from supremenewyork and others."
               icon={<HiCursorClick className="h-6 w-6" />}
+              link="https://github.com/0xhjohnson/captcha-harvester"
             />
             <ProjectColumn
               title="Slicesum"
               summary="Budgeting for everyone who wants to save, invest, and make their money work for them."
               icon={<HiCurrencyDollar className="h-6 w-6" />}
+              link="https://slicesum.com"
             />
             <ProjectColumn
               title="Gotham Theme Sublime"
               summary="Very dark Sublime Text 3 UI theme. Inspired by Gotham color scheme."
               icon={<HiSparkles className="h-6 w-6" />}
+              link="https://github.com/0xhjohnson/gotham-theme-sublime"
             />
             <ProjectColumn
               title="React Tailwind Starter"
               summary="Minimal starter for React Tailwind app with reasonable defaults."
               icon={<HiLightningBolt className="h-6 w-6" />}
+              link="https://github.com/0xhjohnson/react-tailwind-starter"
             />
           </div>
         </section>
