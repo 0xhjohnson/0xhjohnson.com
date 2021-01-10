@@ -47,14 +47,15 @@ function Stats() {
             I grew up on the west coast of Florida and am finishing up my last
             semester at UCF. Graduating with an IT degree with a focus on
             security and computer science. Spend my free time playing Warzone /
-            Cyberpunk, listening to music, and working out.
+            Cyberpunk, listening to music, and working out. Probably spinning up
+            a favorite from my{' '}
+            <a
+              className="text-gray-900 dark:text-gray-100 hover:underline"
+              href="https://www.discogs.com/user/0xhjohnson/collection"
+            >
+              vinyl collection.
+            </a>
           </p>
-          <a
-            className="text-gray-900 dark:text-gray-100 my-4 hover:underline"
-            href="https://www.discogs.com/user/0xhjohnson/collection"
-          >
-            Discogs
-          </a>
         </div>
         <section className="pt-8 pb-16 grid gap-4 grid-cols-1 sm:grid-cols-2">
           <div>
