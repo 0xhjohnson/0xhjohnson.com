@@ -11,7 +11,7 @@ type Props = {
 
 function SpotifyGroup({ title, text, art, link }: Props) {
   return (
-    <div className="px-6 py-4">
+    <div className="py-4 sm:px-4">
       <div className="flex items-center">
         <Image
           src={art.url}
