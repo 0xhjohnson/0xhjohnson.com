@@ -6,23 +6,13 @@ function NotFound() {
   return (
     <>
       <NextSeo title="404 Not Found — Hunter Johnson" />
-      <div className="py-16 max-w-sm mx-auto space-y-6">
-        <div className="flex justify-center">
-          <Image
-            src="/assets/not-found.svg"
-            alt="Not found"
-            width={125}
-            height={125}
-          />
-        </div>
-        <div className="flex justify-center">
-          <p className="pr-4 text-lg font-mono text-gray-500 dark:text-gray-300 border-r border-gray-600 tracking-wider">
-            404
-          </p>
-          <p className="ml-4 text-lg font-mono text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-            NOT FOUND
-          </p>
-        </div>
+      <div className="py-16 max-w-sm mx-auto space-y-5">
+        <Image
+          src="/assets/not-found.svg"
+          alt="Page not found"
+          width={400}
+          height={235}
+        />
         <p className="text-gray-700 dark:text-gray-300">
           You appear to have lost your way. Double check the URL or head back to
           the homepage.
