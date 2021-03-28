@@ -1,28 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { GA_TRACKING_ID } from '@/lib/analytics';
+
+const CLOUDFLARE_ANALYTICS_TOKEN = process.env.CLOUDFLARE_ANALYTICS_TOKEN;
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
-            page_path: window.location.pathname,
-            anonymize_ip: true
-          });
-          `
-            }}
-          />
           <link
             rel="preload"
             href="/fonts/Inter-roman.var.woff2?v=3.15"
@@ -37,6 +21,10 @@ class MyDocument extends Document {
             crossOrigin="true"
           />
           <script src="noflash.js" />
+          <script
+            defer
+            src={`https://static.cloudflareinsights.com/beacon.min.js?token=${CLOUDFLARE_ANALYTICS_TOKEN}`}
+          />
         </Head>
         <body>
           <Main />
