@@ -1,6 +1,9 @@
 import fs from 'fs';
+import Promise from 'bluebird';
+import mdxPrism from 'mdx-prism';
+import { serialize } from 'next-mdx-remote/serialize';
 import { join } from 'path';
-import { replace, map, sort, descend, prop } from 'ramda';
+import { replace, sort, descend, prop } from 'ramda';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 
@@ -15,27 +18,39 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, includeContent: boolean = false) {
-  const actualSlug = replace(/\.md$/, '', slug);
-  const fullPath = join(postsDirectory, `${actualSlug}.md`);
+export async function getPostBySlug(slug: string) {
+  const actualSlug = replace(/\.mdx$/, '', slug);
+  const fullPath = join(postsDirectory, `${actualSlug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { content, data } = matter(fileContents);
 
-  const mdData = {
+  const { content, data } = matter(fileContents);
+  const frontMatter = {
     ...data,
-    slug: actualSlug,
     date: new Date(data.date).toLocaleDateString(),
     isoDate: new Date(data.date).toISOString(),
     readTime: readingTime(content).text,
-    ...(includeContent && { content })
+    slug: actualSlug,
+    title: data.title
   };
+  const mdxSource = await serialize(content, {
+    scope: frontMatter,
+    mdxOptions: {
+      rehypePlugins: [mdxPrism]
+    }
+  });
 
-  return mdData;
+  return {
+    isoDate: frontMatter.isoDate,
+    mdxSource,
+    frontMatter
+  };
 }
 
-export function getAllPosts() {
+export async function getAllPosts() {
   const slugs = getPostSlugs();
-  const unsortedPosts = map(getPostBySlug, slugs);
+  const unsortedPosts = await Promise.map(slugs, function (slug) {
+    return getPostBySlug(slug);
+  });
 
   return sort(descend(prop('isoDate')))(unsortedPosts);
 }

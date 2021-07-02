@@ -2,11 +2,9 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  mode: 'jit',
   darkMode: 'class',
-  purge: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}'
-  ],
+  purge: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -19,13 +17,25 @@ module.exports = {
         green: colors.emerald,
         blue: colors.blue,
         indigo: colors.indigo,
-        pink: colors.pink
+        pink: colors.pink,
+        'light-owl': {
+          gunpowder: '#403f53',
+          alabaster: '#fbfbfb',
+          manatee: '#989fb1',
+          plum: '#994cc3',
+          'blue-chill': '#0c969b',
+          sunset: 'rgba(239, 83, 80, 0.56)',
+          chesnut: '#bc5454',
+          lipstick: '#aa0982',
+          'havelock-blue': '#4876d6',
+          'cod-gray': '#111111',
+          contessa: '#c96765'
+        }
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            code: {
-              color: theme('colors.gray.900'),
+            ':not(pre) > code': {
               backgroundColor: theme('colors.gray.50'),
               padding: theme('spacing[0.5]'),
               borderRadius: theme('borderRadius.md'),
@@ -40,6 +50,13 @@ module.exports = {
             },
             'a:hover': {
               color: theme('colors.gray.500')
+            },
+            pre: {
+              color: null,
+              backgroundColor: null
+            },
+            'pre code': {
+              color: null
             }
           }
         },
@@ -90,10 +107,6 @@ module.exports = {
             'a code': {
               color: theme('colors.gray.100')
             },
-            pre: {
-              color: theme('colors.gray.200'),
-              backgroundColor: theme('colors.gray.900')
-            },
             thead: {
               color: theme('colors.gray.100'),
               borderBottomColor: theme('colors.gray.600')
@@ -104,11 +117,6 @@ module.exports = {
           }
         }
       })
-    }
-  },
-  variants: {
-    extend: {
-      typography: ['responsive', 'dark']
     }
   },
   plugins: [

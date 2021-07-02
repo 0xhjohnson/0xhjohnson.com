@@ -1,54 +1,36 @@
+import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
-import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { map, replace } from 'ramda';
 import { getPostBySlug, getPostSlugs } from '@/lib/api';
-import Post from '@/types/post';
+import { FrontMatter } from '@/types/post';
 import PostHeader from '@/components/post-header';
 
 type Props = {
-  post: Post;
+  frontMatter: FrontMatter;
+  mdxSource: MDXRemoteSerializeResult;
 };
 
-type Renderer = {
-  language: string;
-  value: string;
-};
-
-const renderers = {
-  code: ({ language, value }: Renderer) => {
-    return (
-      <SyntaxHighlighter
-        style={nord}
-        language={language}
-        children={value}
-        codeTagProps={{ className: 'font-mono' }}
-      />
-    );
-  }
-};
-
-function BlogPost({ post }: Props) {
+function BlogPost({ frontMatter, mdxSource }: Props) {
   return (
     <>
       <NextSeo
-        title={post.title}
-        description={post.excerpt}
+        title={frontMatter.title}
+        description={frontMatter.excerpt}
         openGraph={{
-          title: post.title,
-          description: post.excerpt,
-          url: `https://0xhjohnson.com/blog/${post.slug}`,
+          title: frontMatter.title,
+          description: frontMatter.excerpt,
+          url: `https://0xhjohnson.com/blog/${frontMatter.slug}`,
           type: 'article',
           article: {
-            publishedTime: post.isoDate,
-            tags: post.tags
+            publishedTime: frontMatter.isoDate,
+            tags: frontMatter.tags
           }
         }}
       />
-      <PostHeader post={post} />
+      <PostHeader frontMatter={frontMatter} />
       <article className="prose dark:prose-dark pt-10 pb-16">
-        <ReactMarkdown renderers={renderers} children={post.content} />
+        <MDXRemote {...mdxSource} />
       </article>
     </>
   );
@@ -63,16 +45,16 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, true);
+  const { mdxSource, frontMatter } = await getPostBySlug(params.slug);
 
   return {
-    props: { post }
+    props: { frontMatter, mdxSource }
   };
 }
 
 export async function getStaticPaths() {
   const slugs = getPostSlugs();
-  const actualSlugs = map(replace(/\.md$/, ''))(slugs);
+  const actualSlugs = map(replace(/\.mdx$/, ''))(slugs);
 
   return {
     paths: actualSlugs.map((slug) => {

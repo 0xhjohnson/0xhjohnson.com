@@ -1,23 +1,28 @@
 import dayjs from 'dayjs';
 import Img from 'next/image';
-import Post from '@/types/post';
+import { FrontMatter } from '@/types/post';
 
 import PageTitle from '@/components/page-title';
 
 type Props = {
-  post: Post;
+  frontMatter: FrontMatter;
 };
 
-function PostHeader({ post }: Props) {
-  const formattedDate = dayjs(post.isoDate).format('dddd, MMMM DD, YYYY');
+function PostHeader({ frontMatter }: Props) {
+  const formattedDate = dayjs(frontMatter.isoDate).format(
+    'dddd, MMMM DD, YYYY'
+  );
 
   return (
     <header className="pt-6">
       <div className="text-center space-y-1">
-        <time className="font-medium text-gray-500" dateTime={post.isoDate}>
+        <time
+          className="font-medium text-gray-500"
+          dateTime={frontMatter.isoDate}
+        >
           {formattedDate}
         </time>
-        <PageTitle title={post.title} />
+        <PageTitle title={frontMatter.title} />
         <div className="pt-6 pb-10 flex justify-center items-center border-b-2 border-gray-100 dark:border-gray-800">
           <div className="flex">
             <Img

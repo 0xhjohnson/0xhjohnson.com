@@ -6,7 +6,7 @@ import {
   HiLightningBolt
 } from 'react-icons/hi';
 import { getAllPosts } from '@/lib/api';
-import Post from '@/types/post';
+import { Post } from '@/types/post';
 import Hero from '@/components/hero';
 import PostCard from '@/components/post-card';
 import ProjectColumn from '@/components/project-column';
@@ -29,7 +29,7 @@ function Index({ newPosts }: IndexProps) {
           </h2>
           <div className="grid gap-y-12">
             {newPosts.map((post) => (
-              <PostCard key={post.slug} post={post} />
+              <PostCard key={post.frontMatter.slug} post={post} />
             ))}
           </div>
         </section>
@@ -72,7 +72,8 @@ function Index({ newPosts }: IndexProps) {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const newPosts = getAllPosts().slice(0, 3);
+  const posts = await getAllPosts();
+  const newPosts = posts.slice(0, 3);
 
   return {
     props: { newPosts }

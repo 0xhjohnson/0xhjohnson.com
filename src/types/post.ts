@@ -1,13 +1,18 @@
-type Post = {
-  slug: string;
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
+export type FrontMatter = {
   title: string;
   excerpt: string;
   date: string;
-  isoDate: string;
   icon: string;
   tags: string[];
+  slug: string;
+  isoDate: string;
   readTime: string;
-  content: string;
 };
 
-export default Post;
+export type Post = {
+  isoDate: string;
+  mdxSource: MDXRemoteSerializeResult;
+  frontMatter: FrontMatter;
+};

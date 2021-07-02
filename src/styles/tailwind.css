@@ -10,3 +10,121 @@
     @apply bg-white dark:bg-gray-900 transition;
   }
 }
+
+/* prism syntax highlighting stuff */
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-light-owl-gunpowder text-left whitespace-pre break-normal;
+}
+
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
+  @apply bg-light-owl-alabaster;
+  text-shadow: none;
+}
+
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+  @apply bg-light-owl-alabaster;
+  text-shadow: none;
+}
+
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-white bg-light-owl-alabaster;
+}
+
+:not(pre) > code[class*='language-'] {
+  @apply whitespace-normal rounded-md p-0.5;
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  @apply text-light-owl-manatee italic;
+}
+
+.token.punctuation {
+  @apply text-light-owl-plum;
+}
+
+.namespace {
+  @apply text-light-owl-blue-chill;
+}
+
+.token.deleted {
+  @apply text-light-owl-sunset italic;
+}
+
+.token.symbol,
+.token.operator,
+.token.keyword,
+.token.property {
+  @apply text-light-owl-blue-chill;
+}
+
+.token.tag {
+  @apply text-light-owl-plum;
+}
+
+.token.boolean {
+  @apply text-light-owl-chesnut;
+}
+
+.token.number {
+  @apply text-light-owl-lipstick;
+}
+
+.token.constant,
+.token.builtin,
+.token.string,
+.token.url,
+.token.entity,
+.language-css .token.string,
+.style .token.string,
+.token.char {
+  @apply text-light-owl-havelock-blue;
+}
+
+.token.selector,
+.token.function,
+.token.doctype {
+  @apply text-light-owl-plum italic;
+}
+
+.token.attr-name,
+.token.inserted {
+  @apply text-light-owl-havelock-blue italic;
+}
+
+.token.class-name,
+.token.atrule,
+.token.attr-value {
+  @apply text-light-owl-cod-gray;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-light-owl-contessa;
+}
+
+.token.important,
+.token.bold {
+  @apply font-bold;
+}
+
+.token.italic {
+  @apply italic;
+}
