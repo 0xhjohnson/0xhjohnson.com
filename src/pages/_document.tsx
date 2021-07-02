@@ -20,13 +20,12 @@ class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="true"
           />
-          <script src="/noflash.js" />
           <script
             defer
             src={`https://static.cloudflareinsights.com/beacon.min.js?token=${CLOUDFLARE_ANALYTICS_TOKEN}`}
           />
         </Head>
-        <body>
+        <body className="bg-white dark:bg-gray-900 transition">
           <Main />
           <NextScript />
         </body>

@@ -16,11 +16,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/lib/*": ["src/lib/*"],
-      "@/types/*": ["src/types/*"],
-      "@/components/*": ["src/components/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "mdx.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", ".next"]
 }

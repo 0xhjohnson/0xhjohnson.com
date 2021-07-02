@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import {
   HiCursorClick,
   HiSparkles,
@@ -10,6 +11,7 @@ import { Post } from '@/types/post';
 import Hero from '@/components/hero';
 import PostCard from '@/components/post-card';
 import ProjectColumn from '@/components/project-column';
+import Layout from '@/components/layout';
 
 type IndexProps = {
   newPosts: Post[];
@@ -17,7 +19,11 @@ type IndexProps = {
 
 function Index({ newPosts }: IndexProps) {
   return (
-    <>
+    <Layout>
+      <NextSeo
+        title="Hunter Johnson — Developer, sneakerhead, keyboard enthusiast"
+        description="Developer, sneakerhead, keyboard enthusiast. Known on the internet as 0xhjohnson."
+      />
       <div className="pt-16 divide-y-2 divide-gray-100 dark:divide-gray-800">
         <Hero
           title="Hey, I'm Hunter Johnson"
@@ -65,7 +71,7 @@ function Index({ newPosts }: IndexProps) {
           </div>
         </section>
       </div>
-    </>
+    </Layout>
   );
 }
 

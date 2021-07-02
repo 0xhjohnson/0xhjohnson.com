@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+import { HiSun, HiMoon } from 'react-icons/hi';
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import {
   HiMenu,
@@ -15,12 +16,13 @@ import { Transition } from '@headlessui/react';
 import ActiveLink from '@/components/active-link';
 import MobileActiveLink from '@/components/mobile-active-link';
 
-const ModeToggle = dynamic(() => import('@/components/mode-toggle'), {
-  ssr: false
-});
-
 function NavBar() {
+  const [isMounted, setIsMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  // After mounting, we have access to the theme
+  useEffect(() => setIsMounted(true), []);
 
   const iconClasses = classNames(
     'flex-shrink-0',
@@ -37,7 +39,28 @@ function NavBar() {
     <div className="relative">
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-800 py-6 md:justify-start md:space-x-10">
-          <ModeToggle />
+          {isMounted ? (
+            <button
+              className="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+              onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              }
+            >
+              {resolvedTheme === 'dark' ? (
+                <>
+                  <span className="sr-only">Toggle light mode</span>
+                  <HiSun className="h-6 w-6" />
+                </>
+              ) : (
+                <>
+                  <span className="sr-only">Toggle dark mode</span>
+                  <HiMoon className="h-6 w-6" />
+                </>
+              )}
+            </button>
+          ) : (
+            <div className="w-6 h-6"></div>
+          )}
           <div className="flex md:w-0 md:flex-1">
             <Link href="/">
               <a>
