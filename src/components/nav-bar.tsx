@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { HiSun, HiMoon } from 'react-icons/hi';
-import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
 import {
@@ -38,42 +37,32 @@ function NavBar() {
   return (
     <div className="relative">
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-800 py-6 md:justify-start md:space-x-10">
-          {isMounted ? (
-            <button
-              className="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-              onClick={() =>
-                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-              }
-            >
-              {resolvedTheme === 'dark' ? (
-                <>
-                  <span className="sr-only">Toggle light mode</span>
-                  <HiSun className="h-6 w-6" />
-                </>
-              ) : (
-                <>
-                  <span className="sr-only">Toggle dark mode</span>
-                  <HiMoon className="h-6 w-6" />
-                </>
-              )}
-            </button>
-          ) : (
-            <div className="w-6 h-6"></div>
-          )}
-          <div className="flex md:w-0 md:flex-1">
-            <Link href="/">
-              <a>
-                <Image
-                  src="/android-chrome-512x512.png"
-                  alt="0xhjohnson logo"
-                  width={40}
-                  height={40}
-                />
-              </a>
-            </Link>
+        <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-800 py-6 sm:justify-start sm:space-x-10">
+          <div className="flex-1">
+            {isMounted ? (
+              <button
+                className="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                onClick={() =>
+                  setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+                }
+              >
+                {resolvedTheme === 'dark' ? (
+                  <>
+                    <span className="sr-only">Toggle light mode</span>
+                    <HiSun className="h-6 w-6" />
+                  </>
+                ) : (
+                  <>
+                    <span className="sr-only">Toggle dark mode</span>
+                    <HiMoon className="h-6 w-6" />
+                  </>
+                )}
+              </button>
+            ) : (
+              <div className="w-6 h-6"></div>
+            )}
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
+          <div className="-mr-2 -my-2 sm:hidden">
             <button
               className="bg-white dark:bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-600 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
               onClick={toggleMobileMenu}
@@ -82,7 +71,7 @@ function NavBar() {
               <HiMenu className="h-6 w-6" />
             </button>
           </div>
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden sm:flex space-x-8">
             <ActiveLink href="/">Home</ActiveLink>
             <ActiveLink href="/blog">Blog</ActiveLink>
             <ActiveLink href="/about">About</ActiveLink>
@@ -99,7 +88,7 @@ function NavBar() {
         leave="duration-100 ease-in"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
-        className="absolute z-50 top-0 inset-x-0 p-2 transtion transform origin-top-right md:hidden"
+        className="absolute z-50 top-0 inset-x-0 p-2 transtion transform origin-top-right sm:hidden"
       >
         <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-gray-700 bg-white dark:bg-gray-900 divide-y-2 divide-gray-50">
           <div className="pt-5 pb-6 px-5">

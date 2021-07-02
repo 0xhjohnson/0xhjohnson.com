@@ -8,7 +8,7 @@ const prettier = require('prettier');
   const pages = await globby([
     // include
     'src/pages/*.tsx',
-    '_posts/*.md',
+    '_posts/*.mdx',
     // exclude
     '!src/pages/_*.tsx',
     '!src/pages/api',
@@ -25,7 +25,7 @@ const prettier = require('prettier');
             .replace('_posts', '/blog')
             .replace('pages', '')
             .replace('.tsx', '')
-            .replace('.md', '');
+            .replace('.mdx', '');
           const route = path === '/index' ? '' : path;
 
           return `
