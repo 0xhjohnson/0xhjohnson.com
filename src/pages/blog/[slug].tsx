@@ -5,6 +5,7 @@ import { map, replace } from 'ramda';
 import { getPostBySlug, getPostSlugs } from '@/lib/api';
 import { FrontMatter } from '@/types/post';
 import PostHeader from '@/components/post-header';
+import Layout from '@/components/layout';
 
 type Props = {
   frontMatter: FrontMatter;
@@ -13,7 +14,7 @@ type Props = {
 
 function BlogPost({ frontMatter, mdxSource }: Props) {
   return (
-    <>
+    <Layout>
       <NextSeo
         title={frontMatter.title}
         description={frontMatter.excerpt}
@@ -32,7 +33,7 @@ function BlogPost({ frontMatter, mdxSource }: Props) {
       <article className="prose dark:prose-dark pt-10 pb-16">
         <MDXRemote {...mdxSource} />
       </article>
-    </>
+    </Layout>
   );
 }
 

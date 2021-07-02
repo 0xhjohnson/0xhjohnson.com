@@ -1,10 +1,11 @@
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
+import Layout from '@/components/layout';
 
 function NotFound() {
   return (
-    <>
+    <Layout>
       <NextSeo title="404 Not Found — Hunter Johnson" />
       <div className="py-16 max-w-sm mx-auto space-y-5">
         <Image
@@ -23,7 +24,7 @@ function NotFound() {
           </a>
         </Link>
       </div>
-    </>
+    </Layout>
   );
 }
 

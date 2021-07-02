@@ -2,10 +2,11 @@ import { NextSeo } from 'next-seo';
 import Hero from '@/components/hero';
 import Unsplash from '@/components/stats/unsplash';
 import Github from '@/components/stats/github';
+import Layout from '@/components/layout';
 
 function Stats() {
   return (
-    <>
+    <Layout>
       <NextSeo
         title="0xhjohnson stats"
         description="Dashboard of sorts to track my metrics on platforms such as Unsplash and Github."
@@ -20,7 +21,7 @@ function Stats() {
           <Github />
         </section>
       </div>
-    </>
+    </Layout>
   );
 }
 

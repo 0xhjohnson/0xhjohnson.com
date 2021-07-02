@@ -5,6 +5,7 @@ import Art from '@/types/art';
 import Hero from '@/components/hero';
 import SpotifyGroup from '@/components/spotify-group';
 import LoadingSpotifyGroup from '@/components/loading-spotify-group';
+import Layout from '@/components/layout';
 
 type Track = {
   id: string;
@@ -27,7 +28,7 @@ function Stats() {
   const { data: artists } = useSWR('/api/top-artists', fetcher);
 
   return (
-    <>
+    <Layout>
       <NextSeo
         title="About 0xhjohnson — Hunter Johnson"
         description="Up close and personal with 0xhjohnson. Music taste says a lot about a person."
@@ -104,7 +105,7 @@ function Stats() {
           </div>
         </section>
       </div>
-    </>
+    </Layout>
   );
 }
 
