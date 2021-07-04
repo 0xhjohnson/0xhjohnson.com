@@ -1,14 +1,14 @@
 /* prism syntax highlighting stuff */
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-light-owl-gunpowder text-left whitespace-pre break-normal;
+  @apply text-light-owl-gunpowder dark:text-night-owl-botticelli text-left whitespace-pre break-normal;
 }
 
 pre[class*='language-']::-moz-selection,
 pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
-  @apply bg-light-owl-alabaster;
+  @apply bg-light-owl-alto dark:bg-night-owl-cello;
   text-shadow: none;
 }
 
@@ -16,7 +16,7 @@ pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
-  @apply bg-light-owl-alabaster;
+  @apply bg-light-owl-alto dark:bg-night-owl-cello;
   text-shadow: none;
 }
 
@@ -29,7 +29,7 @@ code[class*='language-'] ::selection {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-white bg-light-owl-alabaster;
+  @apply text-white bg-light-owl-alabaster dark:bg-night-owl-midnight;
 }
 
 :not(pre) > code[class*='language-'] {
@@ -39,72 +39,67 @@ pre[class*='language-'] {
 .token.comment,
 .token.prolog,
 .token.cdata {
-  @apply text-light-owl-manatee italic;
+  @apply text-light-owl-manatee dark:text-night-owl-nevada italic;
 }
 
 .token.punctuation {
-  @apply text-light-owl-plum;
+  @apply text-light-owl-plum dark:text-night-owl-lilac;
 }
 
 .namespace {
-  @apply text-light-owl-blue-chill;
+  @apply text-light-owl-blue-chill dark:text-night-owl-jungle-mist;
 }
 
 .token.deleted {
-  @apply text-light-owl-sunset italic;
+  @apply text-light-owl-sunset dark:text-night-owl-salmon-pearl italic;
 }
 
 .token.symbol,
-.token.operator,
-.token.keyword,
 .token.property {
-  @apply text-light-owl-blue-chill;
+  @apply text-light-owl-blue-chill dark:text-night-owl-monte-carlo;
 }
 
-.token.tag {
-  @apply text-light-owl-plum;
+.token.tag,
+.token.operator,
+.token.keyword {
+  @apply text-light-owl-plum dark:text-night-owl-bermuda;
 }
 
 .token.boolean {
-  @apply text-light-owl-chesnut;
+  @apply text-light-owl-chesnut dark:text-night-owl-fiery-rose;
 }
 
 .token.number {
-  @apply text-light-owl-lipstick;
+  @apply text-light-owl-lipstick dark:text-night-owl-tan;
 }
 
 .token.constant,
+.token.function,
 .token.builtin,
-.token.string,
-.token.url,
-.token.entity,
-.language-css .token.string,
-.style .token.string,
 .token.char {
-  @apply text-light-owl-havelock-blue;
+  @apply text-light-owl-havelock-blue dark:text-night-owl-malibu;
 }
 
 .token.selector,
-.token.function,
 .token.doctype {
-  @apply text-light-owl-plum italic;
+  @apply text-light-owl-plum dark:text-night-owl-lilac italic;
 }
 
 .token.attr-name,
 .token.inserted {
-  @apply text-light-owl-havelock-blue italic;
+  @apply text-light-owl-havelock-blue dark:text-night-owl-yellow-green italic;
 }
 
 .token.class-name,
 .token.atrule,
 .token.attr-value {
-  @apply text-light-owl-cod-gray;
+  @apply text-light-owl-cod-gray dark:text-night-owl-chardonnay;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  @apply text-light-owl-contessa;
+  @apply text-light-owl-contessa dark:text-night-owl-botticelli;
 }
 
 .token.important,

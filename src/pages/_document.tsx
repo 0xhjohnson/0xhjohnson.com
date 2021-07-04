@@ -25,7 +25,7 @@ class MyDocument extends Document {
             src={`https://static.cloudflareinsights.com/beacon.min.js?token=${CLOUDFLARE_ANALYTICS_TOKEN}`}
           />
         </Head>
-        <body className="bg-white dark:bg-gray-900 transition">
+        <body className="bg-white dark:bg-gray-900">
           <Main />
           <NextScript />
         </body>

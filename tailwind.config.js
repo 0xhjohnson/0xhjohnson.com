@@ -19,6 +19,7 @@ module.exports = {
         indigo: colors.indigo,
         pink: colors.pink,
         'light-owl': {
+          alto: '#e0e0e0',
           gunpowder: '#403f53',
           alabaster: '#fbfbfb',
           manatee: '#989fb1',
@@ -30,6 +31,22 @@ module.exports = {
           'havelock-blue': '#4876d6',
           'cod-gray': '#111111',
           contessa: '#c96765'
+        },
+        'night-owl': {
+          cello: 'rgba(29, 59, 83, 0.99)',
+          midnight: '#011627',
+          nevada: '#637777',
+          lilac: '#c792ea',
+          'jungle-mist': '#b2ccd6',
+          'salmon-pearl': 'rgba(239, 83, 80, 0.56)',
+          'monte-carlo': '#80cbc4',
+          bermuda: '#7fdbca',
+          'fiery-rose': '#ff5874',
+          tan: '#f78c6c',
+          malibu: '#82aaff',
+          'yellow-green': '#addb67',
+          chardonnay: '#ffcb8b',
+          botticelli: '#d6deeb'
         }
       },
       typography: (theme) => ({
