@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "ANALYZE=true next build",
     "start": "next start",
     "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css,js}}' '!package.json'",
     "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",
+    "@next/bundle-analyzer": "^11.0.1",
     "@octokit/rest": "^18.0.12",
     "bluebird": "^3.7.2",
     "classnames": "^2.2.6",
