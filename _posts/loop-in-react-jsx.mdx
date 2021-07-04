@@ -21,7 +21,6 @@ function App() {
     </ul>
   );
 }
-
 ```
 
 Our code has one issue currently. We need to [key](https://reactjs.org/docs/lists-and-keys.html#keys) our items so that React can tell when items have changed in some way. Our data doesn't have a unique ID field so the easiest solution is to use the [uuid](https://github.com/uuidjs/uuid) package to generate them client side.
@@ -44,7 +43,6 @@ function App() {
     </ul>
   );
 }
-
 ```
 
 The other option is to change the shape of your source data:
@@ -66,5 +64,4 @@ function App() {
     </ul>
   );
 }
-
 ```

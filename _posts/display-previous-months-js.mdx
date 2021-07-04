@@ -20,7 +20,6 @@ function getMonths(numMonths, includeCurrMonth) {
     throw new TypeError('includeCurrMonth must be a boolean');
 
 }
-
 ```
 
 Lets use the includeCurrMonth argument to set whether we would like to start at current month or previous month. Once the start position is set when can start subtracting months. The moment.js library makes this easy via the [subtract](https://momentjs.com/docs/#/manipulating/subtract/) manipulation function. You could easily swap to [dayjs](https://github.com/iamkun/dayjs) which is 96% smaller and shares a nearly identical api as moment.
@@ -69,5 +68,4 @@ function getMonths(numMonths, includeCurrMonth) {
 
   return months;
 }
-
 ```
