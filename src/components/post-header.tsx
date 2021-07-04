@@ -17,7 +17,7 @@ function PostHeader({ frontMatter }: Props) {
     <header className="pt-6">
       <div className="text-center space-y-1">
         <time
-          className="font-medium text-gray-500"
+          className="font-medium text-gray-500 dark:text-gray-400"
           dateTime={frontMatter.isoDate}
         >
           {formattedDate}

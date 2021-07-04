@@ -38,12 +38,12 @@ function Footer() {
           <CustomLink
             href="https://linkedin.com/in/0xhjohnson"
             className="text-gray-400 hover:text-gray-300 transition ease-in duration-150"
-            arai-label="LinkedIn"
+            aria-label="LinkedIn"
           >
             <FaLinkedin className="w-5 h-5" />
           </CustomLink>
         </div>
-        <p className="text-gray-400 text-center mt-8">
+        <p className="text-gray-500 dark:text-gray-400 text-center mt-8">
           &copy; {new Date().getFullYear()} 0xhjohnson. Some rights reserved.
         </p>
       </section>

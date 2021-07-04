@@ -26,7 +26,7 @@ function SpotifyGroup({ title, text, art, link }: Props) {
               {title}
             </a>
           </Link>
-          <p className="text-sm text-gray-500">{text}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{text}</p>
         </div>
       </div>
     </div>
