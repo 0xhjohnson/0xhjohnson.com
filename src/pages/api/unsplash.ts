@@ -1,8 +1,9 @@
 import fetch from 'node-fetch';
 import qs from 'qs';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async function (req: NowRequest, res: NowResponse) {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default async function (_: VercelRequest, res: VercelResponse) {
   try {
     const params = {
       quantity: 1

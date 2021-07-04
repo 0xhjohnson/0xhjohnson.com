@@ -1,8 +1,9 @@
 import * as R from 'remeda';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getTopArtistsTracks } from '@/lib/spotify';
 
-export default async function (req: NowRequest, res: NowResponse) {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default async function (_: VercelRequest, res: VercelResponse) {
   try {
     const response = await getTopArtistsTracks('artists');
     const { items }: SpotifyApi.UsersTopArtistsResponse = await response.json();

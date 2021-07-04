@@ -1,10 +1,11 @@
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import { Octokit } from '@octokit/rest';
 import * as R from 'remeda';
 
 let octokit: Octokit;
 
-export default async function (req: NowRequest, res: NowResponse) {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default async function (_: VercelRequest, res: VercelResponse) {
   try {
     if (!octokit) {
       octokit = new Octokit({
