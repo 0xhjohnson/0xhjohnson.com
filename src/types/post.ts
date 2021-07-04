@@ -4,7 +4,6 @@ export type FrontMatter = {
   title: string;
   excerpt: string;
   date: string;
-  icon: string;
   tags: string[];
   slug: string;
   isoDate: string;

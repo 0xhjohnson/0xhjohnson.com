@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import Img from 'next/image';
+import Image from 'next/image';
 import { FrontMatter } from '@/types/post';
 
 import PageTitle from '@/components/page-title';
@@ -25,11 +25,12 @@ function PostHeader({ frontMatter }: Props) {
         <PageTitle title={frontMatter.title} />
         <div className="pt-6 pb-10 flex justify-center items-center border-b-2 border-gray-100 dark:border-gray-800">
           <div className="flex">
-            <Img
+            <Image
               src="/assets/avatar.png"
               width={40}
               height={40}
               className="rounded-full"
+              alt="Author avatar"
             />
           </div>
           <div className="ml-3 text-left text-sm">

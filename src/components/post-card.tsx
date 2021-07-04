@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Img from 'next/image';
 import { join } from 'ramda';
 import { Post } from '@/types/post';
 
@@ -21,15 +20,7 @@ function PostCard({ post }: Props) {
             {post.frontMatter.excerpt}
           </p>
           <div className="mt-6 flex items-center">
-            <div className="flex-shrink-0">
-              <Img
-                src={post.frontMatter.icon}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            </div>
-            <div className="ml-3">
+            <div>
               <p className="text-sm leading-5 font-medium text-gray-900 dark:text-gray-200">
                 {tags}
               </p>
