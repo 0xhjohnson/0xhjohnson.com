@@ -20,7 +20,7 @@ function Blog({ allPosts }: Props) {
       <div className="pt-16 divide-y-2 divide-gray-100 dark:divide-gray-800">
         <Hero
           title="Posts"
-          subtitle="Personal blog by Hunter Johnson aka 0xhjohson."
+          subtitle="Personal blog by Hunter Johnson aka 0xhjohnson."
         />
         <div className="grid pt-12 pb-16 gap-y-12">
           {allPosts.map((post) => (
