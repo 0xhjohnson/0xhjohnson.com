@@ -1,7 +1,17 @@
 {
-  "name": "blog",
+  "name": "0xhjohhnson.com",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Hunter Johnson",
+    "email": "0xhjohnson@pm.me",
+    "url": "https://0xhjohnson.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xhjohnson/0xhjohnson.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
