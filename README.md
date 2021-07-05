@@ -1,3 +1,8 @@
+[![Lighthouse Accessibility Badge](./public/lighthouse/lighthouse_accessibility.svg)](https://web.dev/accessibility-scoring/)
+[![Lighthouse Best Practices Badge](./public/lighthouse/lighthouse_best-practices.svg)](https://web.dev/lighthouse-best-practices/)
+[![Lighthouse Performance Badge](./public/lighthouse/lighthouse_performance.svg)](https://web.dev/performance-scoring/)
+[![Lighthouse SEO Badge](./public/lighthouse/lighthouse_seo.svg)](https://web.dev/lighthouse-seo/)
+
 # 0xhjohnson.com
 
 My personal portfolio/blog which has gone through numerous iterations to reach this point. Built with Next.js, Typescript, MDX, and TailwindCSS. My personal playground to share my thoughts and what I've been working on.

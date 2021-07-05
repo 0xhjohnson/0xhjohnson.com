@@ -18,7 +18,8 @@
     "analyze": "ANALYZE=true next build",
     "start": "next start",
     "format": "prettier --write '{*.{js,json},src/**/*.{ts,tsx,css,js}}' '!package.json'",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lighthouse": "npx lighthouse-badges --urls {urls from public/lighthouse/urls.txt} -o ./public/lighthouse"
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",

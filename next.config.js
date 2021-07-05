@@ -6,6 +6,7 @@ module.exports = withBundleAnalyzer({
   webpack: (config, { isServer }) => {
     if (isServer) {
       require('./src/scripts/generate-sitemap');
+      require('./src/scripts/lighthouse');
     }
 
     return config;
